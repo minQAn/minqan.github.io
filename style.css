@@ -1,0 +1,656 @@
+/* Global */
+:root {
+    /* Color */
+    --color-white: #ffffff;
+    --color-light-white: #eeeeee;
+    --color-dark-white: #bdbdbd;
+    --color-pink: #fe918d;
+    --color-dark-pink: #ff6863;    
+    --color-dark-grey: #4d4d4d;
+    --color-grey: #616161;
+    --color-light-grey: #7c7979;
+    --color-blue: #73aace;
+    --color-yellow: #fff7d1;
+    --color-orange: #feb546;
+    --color-black: #000000;
+
+    /* Font size */
+    --font-large: 48px;
+    --font-medium: 28px;
+    --font-regular: 18px;
+    --font-small: 16px;
+    --font-micro: 14px;
+
+    /* Font weight */
+    --weight-bold: 700;
+    --weight-semi-bold: 600;
+    --weight-regular: 400;
+
+    /* Size */
+    --size-border-radius: 4px;
+
+    /* Animation */
+    --animation-duration: 300ms;
+}
+
+/* Universal tags */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    cursor: default;  /* 글씨에 마우스 올라갔을때 I 로 보이는걸 방지 */
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+ul{
+    padding-left: 0;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 0; /* if Iphone */
+}
+
+/* Typography */
+h1 {
+    font-size: var(--font-large);
+    font-weight: var(--weight-bold);
+    color: var(--color-black);
+    margin: 16px 0px;
+}
+
+h2 {
+    font-size: var(--font-medium);
+    font-weight: var(--weight-semi-bold);
+    color: var(--color-black);
+    margin: 8px 0;
+}
+
+h3 {
+    font-size: var(--font-regular);
+    font-weight: var(--weight-regular);
+    color: var(--color-black);
+    margin: 8px 0;
+}
+
+p {
+    font-size: var(--font-regular);
+    font-weight: var(--weight-regular);
+    color: var(--color-black);
+    margin: 4px 0;
+}
+
+/* Navbar */
+#navbar {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: transparent;
+    transition: all var(--animation-duration) ease-in-out;
+    z-index: 1;
+}
+
+#navbar.navbar--dark {
+    background-color: var(--color-pink);
+    padding: 8px;
+
+}
+
+.navbar__logo {
+    font-size: var(--font-medium);
+    font-weight: var(--weight-semi-bold);
+    display: flex;    
+    align-items: center;
+    color: white;
+}
+
+.navbar__logo>img{
+    width: 50px;     
+}
+
+.navbar__menu {
+    display: flex;
+}
+
+.navbar__menu__item {
+    padding: 8px 12px;
+    margin: 0 4px;
+    cursor: pointer;
+    border-radius: var(--size-border-radius);
+    color: var(--color-white);
+    border: 1px solid transparent;  /* 보더가 추가되면서 사이즈가 움직이는걸 방지 */
+    border-radius: var(--size-border-radius);
+}
+
+.navbar__menu__item.active {
+    border: 1px solid var(--color-white);
+}
+
+.navbar__menu__item:hover {
+    border-color: var(--color-white);
+    background-color: var(--color-dark-pink);
+}
+
+.navbar__toggle-btn {  
+    position: absolute;
+    top: 26px;
+    right: 32px;
+    font-size: 24px;
+    color: var(--color-white);
+    display: none;
+}
+
+/* Home */
+#home {
+    background: url('imgs/sources/background.png') center/cover no-repeat;
+    padding: 40px;
+    padding-top: 120px;
+    text-align: center;
+}
+
+.home__avatar {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 2px solid var(--color-white);
+}
+
+.home__title,
+.home__description {
+    color: var(--color-white);
+}
+
+.home__contact {
+    color: var(--color-white);
+    font-size: var(--font-regular);
+    font-weight: var(--weight-bold);
+    margin: 24px;
+    padding: 8px 12px;
+    border: 2px solid var(--color-white);
+    border-radius: var(--size-border-radius);
+}
+
+.home__contact:hover {
+    background-color: var(--color-orange);
+}
+
+/* Section common */
+.section {
+    text-align: center;
+    padding: 50px;
+    margin: auto;
+    padding-top: 80px;
+}
+
+.section__container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* About */
+.about__majors {
+    display: flex;
+    justify-content: space-around;
+    margin: 80px 200px;
+}
+
+.major:first-child {
+    margin-right: 20px;
+}
+
+.major__icon {
+    width: 170px;
+    height: 170px;
+    font-size: 70px;
+    line-height: 170px;
+    margin: auto;
+    color: var(--color-blue);
+    border: 1px solid var(--color-blue);
+    border-radius: 50%;
+    margin-bottom: 16px;
+}
+
+.major__icon i {
+    transition: all var(--animation-duration) ease;
+}
+
+.major__icon:hover i{
+    color: var(--color-pink);
+    transform: rotate(-30deg) scale(1.1);    
+}
+
+.major__title, .major__description {
+    color: var(--color-dark-grey);
+}
+
+.major__description {
+    font-size: var(--font-small);
+}
+
+.careers {
+    display: flex;
+    justify-content: space-around;
+}
+
+.about__schools {
+    margin-right: 20px;
+}
+
+.job, .school {    
+    display: flex;
+    align-items: center;
+}
+
+.job>img, .school>img {
+    width: 100px;
+}
+
+.job__description, .school__description {
+    margin: 0 16px;
+    text-align: left;
+}
+
+.job__name, .job__period,
+.school__name, .school__period {
+    color: var(--color-light-grey);    
+}
+
+.job__name, .school__name {
+    font-size: var(--font-small);
+}
+
+.job__period, .school__period {
+    font-size: var(--font-micro);
+}
+
+/* Skill */
+
+#skills {
+    background-color: var(--color-yellow);
+}
+
+.skillset {
+    display: flex;
+    background-color: var(--color-light-grey);
+    color: var(--color-light-white);
+    margin: 20px 0;
+}
+
+.skillset__title {
+    color: var(--color-white);
+}
+
+.skillset__left {
+    flex-basis: 60%;
+    background-color: var(--color-dark-grey);
+    padding: 20px 40px;
+}
+
+.skill {
+    margin-bottom: 32px;
+}
+
+.skill__description {
+    display: flex;
+    justify-content: space-between;
+}
+
+.skill__bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-grey);
+}
+
+.skill__value {
+    width: 50%;  /* default 50%.. set in html inline for now */
+    height: 3px;
+    background-color: var(--color-orange);
+}
+
+.skillset__right {
+    flex-basis: 40%;
+}
+
+.tools {
+    background-color: var(--color-grey);
+}
+
+.tools, .etc {
+    padding: 20px;
+}
+
+/* Work */
+
+.work__categories {
+    margin: 40px;
+    /* white-space: wrap; */
+}
+
+.category__btn {
+    border: 1px solid var(--color-dark-white);
+    border-radius: var(--size-border-radius);
+    font-size: var(--font-regular);
+    padding: 8px 48px;
+    position: relative;
+}
+
+.category__btn.selected,
+.category__btn:hover {
+    background-color: var(--color-pink);
+    color: var(--color-white);
+}
+
+/* 카테고리가 active일때 안에있는 count, 카테고리 호버됬을때의 count 일때만 */
+.category__btn.selected .category__count,
+.category__btn:hover .category__count {
+    opacity: 1;
+    top: 4px;
+}
+
+.category__count {
+    background-color: var(--color-orange);
+    border-radius: 50%;
+    color: var(--color-white);
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    line-height: 24px;    
+    
+    position: absolute;
+    top: -16px;
+    right: 16px;
+    opacity: 0;
+    transition: all var(--animation-duration) ease-in;
+}
+
+.work__projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 1;  
+    transition: all var(--animation-duration) ease-out;  
+}
+
+.work__projects.anim-out {
+    opacity: 0;
+    transform: scale(0.96) translateY(40px);
+}
+
+.project {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    height: 250px;
+    margin: 2px;
+    background-color: var(--color-light-white);
+}
+
+.project.invisible {
+    display: none;
+}
+
+.project__img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.project__description {
+    position: absolute;
+    background-color: black;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all var(--animation-duration) ease-in; 
+}
+
+.project:hover .project__description {
+    opacity: 0.8;
+    transform: translateY(0px);
+}
+
+.project__description h3 {
+    color: var(--color-orange);
+}
+
+.project__description h3:after {
+    content: '';
+    display: block;
+    position: relative;
+    left: 50%;
+    width: 50px;
+    height: 2px;
+    /* margin-left: -12px; 너비의 중간정도 */
+    transform: translateX(-50%);
+    margin-top: 8px;
+    background-color: var(--color-dark-white);
+}
+
+/* Testimonials */
+#testimonials {
+    background-color: var(--color-light-white);    
+}
+
+.testimonials {
+    margin: 40px;
+}
+
+.testimonial {
+    display: flex;
+    margin: 32px 0;
+}
+
+.testimonial__avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;    
+}
+
+.testimonial__avatar:nth-child(odd){
+    margin-right: 40px;
+}
+.testimonial__avatar:nth-child(even){
+    margin-left: 40px;
+}
+
+.testimonial__speech-bubble {
+    padding: 18px;
+    background-color: var(--color-white);    
+    border-radius: var(--size-border-radius);    
+}
+
+.testimonial__speech-bubble p {
+    color: var(--color-light-grey);
+}
+
+.testimonial__speech-bubble a {
+    color: var(--color-pink);
+}
+
+/* Contact */
+#contact {
+    background-color: var(--color-pink);
+}
+
+.contact__title, 
+.contact__email,
+.contact__rights {
+    color: var(--color-white);
+}
+
+.contact__title {
+    margin: 32px 0;
+}
+
+.contact__links {
+    font-size: var(--font-large);
+    margin: 24px 0;
+    transition: all var(--animation-duration) ease-in;
+}
+
+.contact__links i:hover {
+    transform: scale(1.1);
+    color: var(--color-yellow);
+}
+
+/* Scroll */
+.arrow-up {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 70px;
+    height: 70px;
+    font-size: 50px;
+    color: var(--color-white);
+    background-color: var(--color-pink);
+    border-radius: 50%;
+    opacity: 0; /* display 같은 경우는 완전히 없어졌다가 나타나는 것이기 때문에 animation not working */
+    pointer-events: none; /* 이걸 해야 안보일 때도 클릭이 안되도록 할 수 있음 */
+    transition: all var(--animation-duration) ease-in;
+}
+
+.arrow-up.visible {
+    /* display: block; */
+    opacity: 1;
+    pointer-events: auto; /* enable to be clickable again */
+}
+
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    :root {
+        /* Font size */
+        --font-large: 30px;
+        --font-medium: 18px;
+        --font-regular: 16px;
+        --font-small: 14px;
+        --font-micro: 12px;
+    }
+
+    .navbar__toggle-btn {
+        display: block;
+        top: 22px;
+        right: 16px;
+        font-size: var(--font-medium);
+    }
+
+    #navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: var(--color-pink);
+        padding: 8px;
+    }
+
+    #navbar.navbar--dark {
+        padding: 8px;
+    }
+
+    .navbar__menu {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        display: none;
+    }
+
+    .navbar__menu.open {
+        display: block;
+    }
+
+    .section {
+        padding: 16px; /* standard size for mobile  */
+        padding-top: 60px;
+    }
+
+    .about__majors {
+        flex-direction: column;  
+        align-items: center; 
+        margin: 0;       
+        margin-top: 30px;   
+        margin-bottom: 0;
+    }
+
+    .major {        
+        margin-bottom: 30px;                       
+    }
+
+    .major:first-child {
+        margin-right: 0;
+    }
+
+    .careers {
+        flex-direction: column;        
+    }
+    .about__jobs, .about__schools {
+        margin: 0;
+    }
+    .school__description, .job__description {
+        margin-right: 0;
+    }
+    
+
+    .skillset {
+        flex-direction: column;
+    }
+
+    .category__btn {
+        margin: 4px 0;
+        width: 100%;
+    }
+
+    .project {
+        flex-grow: 1; /* 화면을 메꿔줌 */
+    }
+
+    .testimonial {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial__avatar {
+        width: 120px;
+        height: 120px;
+    }
+
+    .testimonial__avatar:nth-child(even),
+    .testimonial__avatar:nth-child(odd) {
+        margin: 0;
+        margin-bottom: 8px;
+    }
+
+    .testimonial__speech-bubble {
+        order: 1; /* avatar보다 뒤에 */
+    }
+
+    .arrow-up {
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+        line-height: 50px;
+        right: 16px;
+        buttom: 16px;
+    }
+}
